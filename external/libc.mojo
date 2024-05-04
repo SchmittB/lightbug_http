@@ -751,7 +751,7 @@ fn inet_pton(address_family: Int, address: String) -> Int:
     var conv_status = inet_pton(
         rebind[c_int](address_family), to_char_ptr(address), ip_buf
     )
-    return ip_buf.bitcast[c_uint]().load().to_int()
+    return int(ip_buf.bitcast[c_uint]().load())
 
 
 # --- ( File Related Syscalls & Structs )---------------------------------------
